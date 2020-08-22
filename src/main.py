@@ -26,10 +26,10 @@ def graph_data():
     for cur_state in parameters['states']:
         for cur_category in parameters['categories']:
             state_data = get_data_for_state(cur_state ,cur_category, dates_array)
-            title = cur_state + " - " + cur_category
+            label = cur_state + " - " + cur_category
             datalist.append({
-                'title': title,
-                'stats': state_data
+                'label': label,
+                'data': state_data
             })
 
     # TODO: Implement for other countries and maybe districts?
