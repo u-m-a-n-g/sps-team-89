@@ -1,6 +1,7 @@
 import datetime
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request, jsonify
+from get_data import *
 
 app = Flask(__name__)
 
@@ -15,6 +16,37 @@ def root():
 
     return render_template('index.html', times=dummy_times)
 
+@app.route('/graph-data', methods=["POST"])
+def graph_data():
+    query_string = request.form.get('query')
+    if not query_string:
+        return "",400 #bad request
+
+    parameters = extract_parameters(project_id, 12345678, query_string)
+    if not parameters['categories']:
+        return "",400
+    
+    # Get the dates_array
+    dates_array = get_dates_array(parameters['start_date'], parameters['end_date'])
+    datalist = [] #List of objects. each object has a 'title' and another array containing the numbers for the required stats
+
+    # Add data for states
+    for cur_state in parameters['states']:
+        for cur_category in parameters['categories']:
+            state_data = get_data_for_state(cur_state ,cur_category, dates_array)
+            title = cur_state + " - " + cur_category
+            datalist.append({
+                'title': title,
+                'stats': state_data
+            })
+
+    # TODO: Implement for other countries and maybe districts?
+
+    return_obj = {
+        'dates_array': dates_array,
+        'datalist': datalist
+    }
+    return jsonify(return_obj)
 
 if __name__ == '__main__':
     # This is used when running locally only. When deploying to Google App
