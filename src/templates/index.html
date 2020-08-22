@@ -1,14 +1,15 @@
 <!doctype html>
 <html>
 <head>
-  <title>Datastore and Firebase Auth Example</title>
+  <title>COVID-19 visualizer</title>
   <script src="{{ url_for('static', filename='script.js') }}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
   <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
   <h1>Hello from team 89</h1>
 
-  <input type="text" id="query-input"/>
+  <textarea id="query-input" rows="4" cols="60"></textarea>
   <button type="button" onclick="return plot_graph()">Click Me!</button> 
 
   <div id='graph-div'>
