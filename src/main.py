@@ -1,5 +1,3 @@
-import datetime
-
 from flask import Flask, render_template, request, jsonify
 from get_data import *
 
@@ -9,12 +7,8 @@ app = Flask(__name__)
 def root():
     # For the sake of example, use static information to inflate the template.
     # This will be replaced with real information in later steps.
-    dummy_times = [datetime.datetime(2018, 1, 1, 10, 0, 0),
-                   datetime.datetime(2018, 1, 2, 10, 30, 0),
-                   datetime.datetime(2018, 1, 3, 11, 0, 0),
-                   ]
-
-    return render_template('index.html', times=dummy_times)
+    # return render_template('index.html', times=dummy_times)
+    return "HELLO WORLD"
 
 @app.route('/graph-data', methods=["POST"])
 def graph_data():
@@ -29,7 +23,6 @@ def graph_data():
     # Get the dates_array
     dates_array = get_dates_array(parameters['start_date'], parameters['end_date'])
     datalist = [] #List of objects. each object has a 'title' and another array containing the numbers for the required stats
-
     # Add data for states
     for cur_state in parameters['states']:
         for cur_category in parameters['categories']:
