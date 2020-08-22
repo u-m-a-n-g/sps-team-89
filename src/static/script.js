@@ -15,27 +15,8 @@ function plot_graph() {
          var chart = new Chart(myChart, {
           type: "line",
           data: {
-          labels: states,
-          datasets: [
-            {
-              label: "Confirmed Cases",
-              data: confirmed,
-              backgroundColor: "#f1c40f",
-          
-            },
-            {
-              label: "Recovered",
-              data: recovered,
-              backgroundColor: "#2ecc71",
-            
-            },
-            {
-              label: "Deceased",
-              data: deaths,
-              backgroundColor: "#e74c3c",
-          
-            },
-          ],
+          labels: this.response.dates_array,
+          datasets: this.response.datalist,
        },
         option: {},
      });
