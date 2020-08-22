@@ -20,11 +20,16 @@ function plot_graph() {
   xhr.addEventListener("readystatechange", function() {
     if(this.readyState === 4) {
       var myChart = document.getElementById("myChart").getContext("2d");
+      //Clear the previous graph.
+      myChart.clearRect(0, 0, myChart.width, myChart.height);
+
       // Add random color to each graph.
       this.response.datalist.forEach( item => {
         item.borderColor = getRandomColor();
         item.fill = false;
       });
+
+      // Add new chart to the canvas
       var chart = new Chart(myChart, {
         type: "line",
         data: {
