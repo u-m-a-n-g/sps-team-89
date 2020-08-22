@@ -11,8 +11,16 @@ function plot_graph() {
     if(this.readyState === 4) {
       document.getElementById("graph-div").innerHTML = this.response;
       // TODO: INSERT GRAPH.JS GRAPH USING this.response as the data.
-    }
-  });
+      var myChart = document.getElementById("myChart").getContext("2d");
+         var chart = new Chart(myChart, {
+          type: "line",
+          data: {
+          labels: this.response.dates_array,
+          datasets: this.response.datalist,
+       },
+        option: {},
+     });
+    
 
   xhr.open("POST", "/graph-data");
   xhr.send(data);
