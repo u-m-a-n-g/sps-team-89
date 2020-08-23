@@ -9,6 +9,14 @@ def root():
     # This will be replaced with real information in later steps.
     return render_template('index.html')
 
+@app.route('/about')
+def about():
+	return render_template('about.html')
+    
+@app.route('/qna')
+def qna():
+	return render_template('qna.html')
+
 @app.route('/graph-data', methods=["POST"])
 def graph_data():
     query_string = request.form.get('query')
