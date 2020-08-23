@@ -4,7 +4,9 @@ body {
     
   }
 .main{
-   background: linear-gradient(rgba(255,255,255,0.2),rgba(255,255,255,0.3)), url(static/covid.jpg) center no-repeat;
+    background-image: linear-gradient(rgba(255,255,255,0.2),rgba(255,255,255,0.3)), url('./covid.jpg');
+    background-repeat:no-repeat;
+    background-position: center center;
 }
 #query-input{
     margin:0 auto;
