@@ -1,20 +1,71 @@
 <!doctype html>
-<html>
-<head>
-  <title>Datastore and Firebase Auth Example</title>
-  <script src="{{ url_for('static', filename='script.js') }}"></script>
-  <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
-  <h1>Hello from team 89</h1>
 
-  <input type="text" id="query-input"/>
+<html>
+
+<head>
+
+  <title>COVID-19 visualizer</title>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+  <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+
+   <div class="navbar navbar-default">
+
+        <div class="container-fluid">
+
+            <div class="collapse navbar-collapse" id="collapibleMenu">
+
+                <ul class="nav navbar-nav navbar-right">
+
+                    <li><a href="{{url_for('qna')}}">QnA</a></li>
+
+                    <li><a href="{{url_for('about')}}">About Us</a></li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+ <section class = "main"> 
+ 
+ <h3> Ask anything about Covid-19 across India</h3>
+ <h2 style="color: greenyellow"> Check it Out !<h2>
+
+  <img src="static/check.gif"/>
+  
+  <br></br>
+  <textarea id="query-input"></textarea>
+
   <button type="button" onclick="return plot_graph()">Click Me!</button> 
 
+
   <div id='graph-div'>
+
     <!-- GRAPH IS DISPLAYED HERE -->
-    <canvas id="myChart"></canvas>
+
+    <canvas id="myChart" height="450" width="600"></canvas>
+
   </div>
+ </section>
+  
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 </body>
+
 </html>
+
