@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+<head>
+  <title>COVID-19 visualizer</title>
+  
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  
+  <style>
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+.row{
+    padding: 200px 200px;
+    
+}
+.column {
+  float: left;
+  width: 33%;
+  margin-top: 30px;
+  margin-bottom: 16px;
+  padding: 0 8px;
+  
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 80%;
+    display: block;
+  }
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+
+</style>
+</head>
+<body>
+   <div class="navbar navbar-default">
+	    <div class="container-fluid">
+	    	<div class="collapse navbar-collapse" id="collapibleMenu">
+	    		<ul class="nav navbar-nav navbar-right">
+                    <li><a href="{{url_for('root')}}">Visualizer</a></li>
+				    <li><a href="{{url_for('qna')}}">QnA</a></li>
+				</ul>
+	    	</div>
+	    </div>
+	</div>
+  <!--<h1>Hello from team 89</h1>-->
+
+
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <img src="{{ url_for('static', filename='images.png') }}" alt="Jane" style="width:100%">
+      <div class="container">
+        <h2>Apoorva Singh</h2>
+        <p class="title">Final Year Student</p>
+        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+        <p>asingh@sps-program.com</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="{{ url_for('static', filename='images.png') }}" alt="Mike" style="width:100%">
+      <div class="container">
+        <h2>Umang Malik</h2>
+        <p class="title">Final Year Student</p>
+        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+        <p>umalik@sps-program.com</p>
+    
+      </div>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="card">
+      <img src="{{ url_for('static', filename='images.png') }}" alt="John" style="width:100%">
+      <div class="container">
+        <h2>Monika Rathore</h2>
+        <p class="title">Final Year Student</p>
+        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+        <p>mrathore@sps-program.com</p>
+    
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+</body>
+</html>
