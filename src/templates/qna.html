@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+  <title>COVID-19 visualizer</title>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+  <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+   <div class="navbar navbar-default">
+	    <div class="container-fluid">
+	    	<div class="collapse navbar-collapse" id="collapibleMenu">
+	    		<ul class="nav navbar-nav navbar-right">
+                    <li><a href="{{url_for('root')}}">Visualizer</a></li>
+				    <li><a href="{{url_for('about')}}">About Us</a></li>
+				</ul>
+	    	</div>
+	    </div>
+	</div>
+  <!--<h1>Hello from team 89</h1>-->
+
+ 
+
+    
+  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</body>
+</html>
