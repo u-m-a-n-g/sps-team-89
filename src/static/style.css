@@ -1,8 +1,7 @@
 body {
     font-family: "helvetica", sans-serif;
     text-align: center;
-    
-  }
+}
 .main{
     background-image: linear-gradient(rgba(255,255,255,0.2),rgba(255,255,255,0.3)), url('./covid.jpg');
     background-repeat:no-repeat;
@@ -10,8 +9,8 @@ body {
 }
 #query-input{
     margin:0 auto;
-    width:60%;
-    height:20%
+    width:80%;
+    height:20%;
 }
 
 
