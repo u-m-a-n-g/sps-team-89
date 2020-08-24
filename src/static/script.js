@@ -39,6 +39,7 @@ function plot_graph() {
         },
         option: {},
       });
+      $('html,body').animate({scrollTop: document.body.scrollHeight},2000);
     }
   });
     
