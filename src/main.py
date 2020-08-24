@@ -1,5 +1,6 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, send_from_directory
 from get_data import *
+import os
 
 app = Flask(__name__)
 
@@ -12,10 +13,15 @@ def root():
 @app.route('/about')
 def about():
 	return render_template('about.html')
-    
+
 @app.route('/qna')
 def qna():
 	return render_template('qna.html')
+
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'),'favicon.ico')
 
 @app.route('/graph-data', methods=["POST"])
 def graph_data():
