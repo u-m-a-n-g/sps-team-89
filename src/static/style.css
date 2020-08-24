@@ -3,9 +3,7 @@ body {
     text-align: center;
 }
 .main{
-    background-image: linear-gradient(rgba(255,255,255,0.2),rgba(255,255,255,0.3)), url('./covid.jpg');
-    background-repeat:no-repeat;
-    background-position: center center;
+    background: linear-gradient(to right, #a8ff78, #78ffd6);
 }
 #query-input{
     margin:0 auto;
