@@ -22,11 +22,12 @@ function plot_graph() {
       var myChart = document.getElementById("myChart").getContext("2d");
       //Clear the previous graph.
       myChart.clearRect(0, 0, myChart.width, myChart.height);
-
+      var datasets = this.response.datalist.slice();
       // Add random color to each graph.
-      this.response.datalist.forEach( item => {
-        item.borderColor = getRandomColor();
-        item.fill = false;
+      datasets.forEach(item => {
+          item.borderColor = getRandomColor();
+          item.backgroundColor = item.borderColor;
+          item.fill = false;
       });
 
       // Add new chart to the canvas
@@ -34,7 +35,7 @@ function plot_graph() {
         type: "line",
         data: {
           labels: this.response.dates_array,
-          datasets: this.response.datalist,
+          datasets: datasets,
         },
         option: {},
       });
