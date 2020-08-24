@@ -3,11 +3,19 @@ from get_data import *
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def root():
-    # For the sake of example, use static information to inflate the template.
-    # This will be replaced with real information in later steps.
     return render_template('index.html')
+
+
+@app.route('/about')
+def about():
+	return render_template('about.html')
+    
+@app.route('/qna')
+def qna():
+	return render_template('qna.html')
 
 @app.route('/graph-data', methods=["POST"])
 def graph_data():
