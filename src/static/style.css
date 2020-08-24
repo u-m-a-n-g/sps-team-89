@@ -3,8 +3,9 @@ body {
     text-align: center;
 }
 .main{
-    background: linear-gradient(to right, #a8ff78, #78ffd6);
+    background: linear-gradient(to right, #fdfbfb, #ebedee);
 }
+
 #query-input{
     margin:0 auto;
     width:80%;
@@ -17,6 +18,12 @@ df-messenger {
     --df-messenger-chat-background-color: #befcf9c7;
     --df-messenger-send-icon: #878fac;
     --df-messenger-user-message: white;
+}
+#aware{
+    text-align: left;
+    margin-left:200px;
+    position: absolute;
+    top: 30%;
 }
 
   
