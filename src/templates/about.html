@@ -6,8 +6,13 @@
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   
   <style>
-html {
+html,body {
   box-sizing: border-box;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+
 }
 
 *, *:before, *:after {
@@ -76,10 +81,10 @@ html {
   
  
 <div class="row">
-    <h1 style = "text-align: center; color: purple">Team 89 - mentored by Rajlaxmi</h1>
+    <h1 style = "text-align: center; color: purple">Team 89 - Mentored by Rajlaxmi</h1>
   <div class="column">
     <div class="card">
-      <img src="{{ url_for('static', filename='apoorva.jpeg') }}" alt="Jane" style="width:100%">
+      <img src="{{ url_for('static', filename='apoorva.jpeg') }}" alt="Apoorva" style="width:100%">
       <div class="container">
         <h2>Apoorva Singh</h2>
         <p class="title">Final Year Student</p>
@@ -91,7 +96,7 @@ html {
 
   <div class="column">
     <div class="card">
-      <img src="{{ url_for('static', filename='umang.jpeg') }}" alt="Mike" style="width:100%">
+      <img src="{{ url_for('static', filename='umang.jpeg') }}" alt="Umang" style="width:100%">
       <div class="container">
         <h2>Umang Malik</h2>
         <p class="title">Final Year Student</p>
@@ -104,7 +109,7 @@ html {
   
   <div class="column">
     <div class="card">
-      <img src="{{ url_for('static', filename='monika.jpeg') }}" alt="John" style="width:100%">
+      <img src="{{ url_for('static', filename='monika.jpeg') }}" alt="Monika" style="width:100%">
       <div class="container">
         <h2>Monika Rathore</h2>
         <p class="title">Final Year Student</p>
