@@ -7,13 +7,10 @@
   <title>COVID-19 visualizer</title>
 
   <script src="{{ url_for('static', filename='script.js') }}"></script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-
   <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
@@ -40,7 +37,7 @@
 
     </div>
 
- <section class = "main"> 
+ <section class="main" >
  
  <h3> Ask anything about Covid-19 across India</h3>
  <h2 style="color: greenyellow"> Check it Out !<h2>
@@ -56,8 +53,7 @@
   <div id='graph-div'>
 
     <!-- GRAPH IS DISPLAYED HERE -->
-
-    <canvas id="myChart" height="450" width="600"></canvas>
+    <canvas id="myChart" ></canvas>
 
   </div>
  </section>
