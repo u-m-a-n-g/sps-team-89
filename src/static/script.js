@@ -19,9 +19,11 @@ function plot_graph() {
   xhr.responseType = 'json';
   xhr.addEventListener("readystatechange", function() {
     if(this.readyState === 4) {
-      var myChart = document.getElementById("myChart").getContext("2d");
       //Clear the previous graph.
-      myChart.clearRect(0, 0, myChart.width, myChart.height);
+      document.getElementById('myChart').remove();
+    //   document.getElementById('graph-div').append('<canvas id="myChart"><canvas>');
+        $('#graph-div').append('<canvas id="myChart"><canvas>');
+      var myChart = document.getElementById("myChart").getContext("2d");
       var datasets = this.response.datalist.slice();
       // Add random color to each graph.
       datasets.forEach(item => {
