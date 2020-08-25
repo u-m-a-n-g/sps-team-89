@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, jsonify, send_from_directory
 from get_data import *
 import os
+from random import randint
 
 app = Flask(__name__)
 
@@ -29,12 +30,10 @@ def graph_data():
     if not query_string:
         return "",400 #bad request
 
-    parameters = extract_parameters(project_id, 12345678, query_string)
+    parameters = extract_parameters(project_id,randint(1,1e9) , query_string)
     if not parameters['categories']:
         return "",400
 
-    print(query_string)
-    print(parameters)
     # Get the dates_array
     dates_array = get_dates_array(parameters['start_date'], parameters['end_date'])
     datalist = [] #List of objects. each object has a 'title' and another array containing the numbers for the required stats
