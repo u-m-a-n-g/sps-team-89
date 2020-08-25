@@ -32,7 +32,9 @@ def graph_data():
     parameters = extract_parameters(project_id, 12345678, query_string)
     if not parameters['categories']:
         return "",400
-    
+
+    print(query_string)
+    print(parameters)
     # Get the dates_array
     dates_array = get_dates_array(parameters['start_date'], parameters['end_date'])
     datalist = [] #List of objects. each object has a 'title' and another array containing the numbers for the required stats
@@ -46,7 +48,18 @@ def graph_data():
                 'data': state_data
             })
 
-    # TODO: Implement for other countries and maybe districts?
+    # Add data for countries.
+    for cur_country_orig in parameters['countries']:
+        cur_country = get_country_name(cur_country_orig)
+        for cur_category in parameters['categories']:
+            if cur_category == 'tested':
+                continue
+            country_data = get_data_for_country(cur_country, cur_category, dates_array)
+            label = cur_country_orig + ' - ' + cur_category
+            datalist.append({
+                'label': label,
+                'data': country_data
+            })
 
     return_obj = {
         'dates_array': dates_array,

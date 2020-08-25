@@ -61,7 +61,10 @@ def load_data(filename):
     with open(filename,'r') as f:
         data = json.load(f)
         return data
+
 complete_state_data = load_data('data/data-india.json')
+complete_global_data = load_data('data/data-global.json')
+
 state_to_statecode = {
     "Andaman and Nicobar Islands": "AN",
     "Andhra Pradesh": "AP",
@@ -100,6 +103,14 @@ state_to_statecode = {
     "West Bengal": "WB"
 }
 
+geo_country_to_key = {
+    "united states" : "us",
+}
+
+def get_country_name(x):
+    lower_case_name = x.lower()
+    return geo_country_to_key.get(lower_case_name,lower_case_name)
+
 def get_dates_array(start_date, end_date):
     day_count = (end_date - start_date).days + 1
     dates_in_between = [ single_date.strftime("%Y-%m-%d") for single_date in (start_date + timedelta(n) for n in range(day_count))]
@@ -129,6 +140,24 @@ def get_data_for_state(state, category, dates_array):
         except KeyError: #No data found for that date.
             pass #defaulted to None
     return state_data
+
+
+def get_data_for_country(country, category, dates_array):
+    country_data = [None for _ in dates_array]
+    # Handle country not available.
+    if not country in complete_global_data:
+        return country_data
+    for i,cur_date in enumerate(dates_array):
+        try:
+            country_date_stats = complete_global_data[country][cur_date]
+            if category == 'active':
+                country_data[i] = country_date_stats['confirmed'] - country_date_stats['deaths'] - country_date_stats['recovered']
+            else: # confirmed or recovered or deaths
+                country_data[i] = country_date_stats[category]
+        except KeyError: #No data found for that date.
+            pass #defaulted to None
+    return country_data
+
 
 if __name__ == '__main__':
     # query = "Plot the total, deaths and active cases in India, USA and Brazil between 3rd july and 5th august"
